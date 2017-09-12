@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es-cl">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+
+	<title>Test</title>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+
+	<img style="margin: 0 auto; display: block; width: 60%" src="http://static1.squarespace.com/static/578a6334ebbd1a6a91ff6e19/t/578a64d203596ee71362d78e/1481317083713/?format=1500w" alt="Logo TOC">
+	<div style="margin: 10px auto; width: 210px">
+		<a style="width: 100%" class="btn btn-info btn-lg" href="toc://webcallback=https://vhmartinezm.github.io&session_id=123456&extra_data=abc123">
+			<span class="glyphicon glyphicon-user" aria-hidden="true"></span> Provida iPad IOS
+		</a>
+		<a style="width: 100%; margin-top: 10px !important" class="btn btn-primary btn-lg" href="demo://webcallback=https://vhmartinezm.github.io&session_id=123456&extra_data=abc123">
+			<span class="glyphicon glyphicon-user" aria-hidden="true"></span> Provida iPhone IOS
+		</a>
+		<a style="width: 100%; margin-top: 10px !important" class="btn btn-success btn-lg" href="flb://webcallback=https://vhmartinezm.github.io&session_id=123456&extra_data=abc123">
+			<span class="glyphicon glyphicon-user" aria-hidden="true"></span> TOC Demo Android
+		</a>
+	</div>
+
+	<ul id="data" style="display: none" class="list-group">
+		<li id="rut" class="list-group-item"></li>
+		<li id="apellidos" class="list-group-item"></li>
+		<li id="serieci" class="list-group-item"></li>
+		<li id="fvenc" class="list-group-item"></li>
+		<li id="extra_data" class="list-group-item"></li>
+		<li id="id_toc" class="list-group-item"></li>
+	</ul>
+	
+	<script>
+		var getUrlParameter = function getUrlParameter(sParam) {
+		    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+		        sURLVariables = sPageURL.split('&'),
+		        sParameterName,
+		        i;
+
+		    for (i = 0; i < sURLVariables.length; i++) {
+		        sParameterName = sURLVariables[i].split('=');
+
+		        if (sParameterName[0] === sParam) {
+		            return sParameterName[1] === undefined ? true : sParameterName[1];
+		        }
+		    }
+		};
+
+		var rut = getUrlParameter('rut');
+		var apellidos = getUrlParameter('apellidos');
+		var serieci = getUrlParameter('serieci');
+		var fvenc = getUrlParameter('fvenc');
+		var extra_data = getUrlParameter('extra_data');
+		var id_toc = getUrlParameter('id_toc');
+
+		if (rut) {
+			document.getElementById("data").style.display = "block";
+			document.getElementById("rut").innerHTML = "<b>rut: </b>" + rut;
+		}
+
+		if (apellidos) {
+			document.getElementById("apellidos").innerHTML = "<b>apellidos: </b>" + apellidos;
+		}
+
+		if (serieci) {
+			document.getElementById("serieci").innerHTML = "<b>serieci: </b>" + serieci;
+		}
+
+		if (fvenc) {
+			document.getElementById("fvenc").innerHTML = "<b>fvenc: </b>" + fvenc;
+		}
+
+		if (extra_data) {
+			document.getElementById("extra_data").innerHTML = "<b>extra_data: </b>" + extra_data;
+		}
+
+		if (id_toc) {
+			document.getElementById("id_toc").innerHTML = "<b>id_toc: </b>" + id_toc;
+		}
+
+	</script>
+</body>
+</html>
